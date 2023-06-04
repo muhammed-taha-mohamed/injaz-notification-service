@@ -65,23 +65,4 @@ public class NotificationServiceImpl {
     }
 
 
-
-
-    public void sendHtmlMessage(String to, String subject, String htmlContent) {
-
-        MimeMessage message = emailSender.createMimeMessage();
-
-        try {
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setTo(to);
-            helper.setSubject(subject);
-            helper.setText(htmlContent, true); // Enable HTML content
-
-            emailSender.send(message);
-        } catch (Exception e) {
-            throw new AbstractTrustException("Failed to send email: " + e.getMessage());
-        }
-    }
-
-
 }
